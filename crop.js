@@ -2,8 +2,8 @@
     var width_crop = 600, // 圖片裁切寬度 px 值
     height_crop = 400, // 圖片裁切高度 px 值
     type_crop = "square", // 裁切形狀: square 為方形, circle 為圓形
-    width_preview = 900, // 預覽區塊寬度 px 值
-    height_preview = 600, // 預覽區塊高度 px 值
+    width_preview = 660, // 預覽區塊寬度 px 值
+    height_preview = 440, // 預覽區塊高度 px 值
     compress_ratio = 0.85, // 圖片壓縮比例 0~1
     type_img = "jpeg", // 圖檔格式 jpeg png webp
     oldImg = new Image(),
@@ -58,21 +58,19 @@
 
         html += "<p style='color:white'>原始圖片尺寸 " + width + "x" + height + "</p>";
         html += "<p style='color:white'>檔案大小約 " + fileSize + "k</p>";
-        // window.alert(html);
-        $("#oldImg").before(html);
+        $("#oldImg").before(html); //.before() -> 在被選元素前插入指定內容
     };
 
     // 顯示裁切後圖片
     function displayCropImg(src) {
         var html = "<img src='" + src + "' />";
-        $("#newImg").html(html);
+        $("#newImg").html(html); //.html() -> 返回或設置被選元素的內容
     }
 
     // 裁切後圖片資訊
     function displayNewImgInfo(src) {
         var html = "",
         filesize = src.length * 0.75;
-        // window.alert(src.length)
         html += "<p style='color:white'>裁切圖片尺寸 " + width_crop + "x" + height_crop + "</p>";
         html += "<p style='color:white'>檔案大小約 " + Math.round(filesize / 1000) + "k</p>";
         $("#newImgInfo").html(html);
